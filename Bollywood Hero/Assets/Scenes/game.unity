@@ -691,6 +691,36 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114203030927198752, guid: 936fa99be08c7eb4a89e677487f1d461,
+        type: 2}
+      propertyPath: offsets.xPositionOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203030927198752, guid: 936fa99be08c7eb4a89e677487f1d461,
+        type: 2}
+      propertyPath: offsets.yPositionOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203030927198752, guid: 936fa99be08c7eb4a89e677487f1d461,
+        type: 2}
+      propertyPath: offsets.zPositionOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203030927198752, guid: 936fa99be08c7eb4a89e677487f1d461,
+        type: 2}
+      propertyPath: offsets.xRotationOffset
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203030927198752, guid: 936fa99be08c7eb4a89e677487f1d461,
+        type: 2}
+      propertyPath: offsets.yRotationOffset
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203030927198752, guid: 936fa99be08c7eb4a89e677487f1d461,
+        type: 2}
+      propertyPath: offsets.zRotationOffset
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 936fa99be08c7eb4a89e677487f1d461, type: 2}
   m_IsPrefabParent: 0
@@ -741,6 +771,21 @@ Prefab:
         type: 2}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203030927198752, guid: 936fa99be08c7eb4a89e677487f1d461,
+        type: 2}
+      propertyPath: offsets.xPositionOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203030927198752, guid: 936fa99be08c7eb4a89e677487f1d461,
+        type: 2}
+      propertyPath: offsets.yPositionOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203030927198752, guid: 936fa99be08c7eb4a89e677487f1d461,
+        type: 2}
+      propertyPath: offsets.zPositionOffset
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 936fa99be08c7eb4a89e677487f1d461, type: 2}
