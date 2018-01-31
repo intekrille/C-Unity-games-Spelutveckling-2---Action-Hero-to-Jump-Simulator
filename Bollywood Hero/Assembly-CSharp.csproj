@@ -53,8 +53,11 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraControls.cs" />
      <Compile Include="Assets\Scripts\FallingObject.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Settings.cs" />
+     <Compile Include="Assets\Scripts\WinPlatform.cs" />
  <Reference Include="com.unity.package-manager-ui.Editor">
  <HintPath>C:/Users/mathi/Documents/GitHub/C-Unity-games-Spelutveckling-2---Action-Hero-to-Jump-Simulator/Bollywood Hero/Library/ScriptAssemblies/com.unity.package-manager-ui.Editor.dll</HintPath>
  </Reference>
