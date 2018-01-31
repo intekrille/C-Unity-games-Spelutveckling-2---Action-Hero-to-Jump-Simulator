@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 ﻿using UnityEngine;
+=======
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+>>>>>>> bc9fddef4458820bf4ede4c252e97606175ad53c
 
 public class FallingObject : MonoBehaviour
 {

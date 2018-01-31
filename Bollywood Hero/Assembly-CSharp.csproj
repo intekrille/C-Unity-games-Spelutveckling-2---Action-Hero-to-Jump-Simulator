@@ -54,10 +54,12 @@
      <Compile Include="Assets\Cartoon Particles -  Fire &amp; Smoke (Free)\Scripts\Mover.cs" />
      <Compile Include="Assets\Scripts\CameraControls.cs" />
      <Compile Include="Assets\Scripts\FallingObject.cs" />
+<<<<<<< HEAD
      <Compile Include="Assets\Scripts\MainMenu.cs" />
+=======
+>>>>>>> bc9fddef4458820bf4ede4c252e97606175ad53c
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Settings.cs" />
-     <Compile Include="Assets\Scripts\WinPlatform.cs" />
  <Reference Include="com.unity.package-manager-ui.Editor">
  <HintPath>C:/Users/mathi/Documents/GitHub/C-Unity-games-Spelutveckling-2---Action-Hero-to-Jump-Simulator/Bollywood Hero/Library/ScriptAssemblies/com.unity.package-manager-ui.Editor.dll</HintPath>
  </Reference>

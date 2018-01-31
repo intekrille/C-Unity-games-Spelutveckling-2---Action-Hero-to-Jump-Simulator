@@ -344,11 +344,8 @@
     <Compile Include="Assets\Cartoon Particles -  Fire &amp; Smoke (Free)\Scripts\Mover.cs" />
     <Compile Include="Assets\Scripts\CameraControls.cs" />
     <Compile Include="Assets\Scripts\FallingObject.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Settings.cs" />
-    <Compile Include="Assets\Scripts\WinPlatform.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\ProgramData\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.3.0\Editor\Resources\Styles\Main_Dark.uss" />
