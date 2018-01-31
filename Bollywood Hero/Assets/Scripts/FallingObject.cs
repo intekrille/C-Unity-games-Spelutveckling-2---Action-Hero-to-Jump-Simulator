@@ -1,20 +1,52 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
-    [SerializeField] float explosionDelay = 5f, blastRadius = 5f, force = 700f, beforceTouchedSpeed = 5, afterTouchedSpeed = 10;
-    [SerializeField] GameObject explosionEffect;  
-    bool beenTouched = false;
+    [System.Serializable]
+    class Offset {
+        public float xPositionOffset, yPositionOffset, zPositionOffset, xRotationOffset, yRotationOffset, zRotationOffset;
+    }
+    [SerializeField] Offset offsets;
 
-    void FixedUpdate()
+    [SerializeField] float delay = 5f, blastRadius = 5f, force = 700f;
+    float downSpeed = 0, countdown = 3;
+
+    [SerializeField] GameObject explosionEffect;  
+    bool isFalling = false;
+
+    Vector3 rotation;
+
+    void Start()
     {
-        transform.position += Vector3.down * (beenTouched ? afterTouchedSpeed : beforceTouchedSpeed) * Time.deltaTime;
+        transform.position += new Vector3(Random.Range(-offsets.xPositionOffset, offsets.xPositionOffset), 
+                                          Random.Range(-offsets.yPositionOffset, offsets.yPositionOffset),
+                                          Random.Range(-offsets.zPositionOffset, offsets.zPositionOffset));
+
+        rotation = new Vector3(Random.Range(-offsets.xRotationOffset, offsets.xRotationOffset),
+                                          Random.Range(-offsets.yRotationOffset, offsets.yRotationOffset),
+                                          Random.Range(-offsets.zRotationOffset, offsets.zRotationOffset));
     }
 
-    IEnumerator Explode()
+    void Update()
     {
-        yield return new WaitForSeconds(explosionDelay);
+        transform.Rotate(rotation);
+
+        if (isFalling)
+        {
+            downSpeed += Time.deltaTime / 50;
+            transform.position = new Vector3(transform.position.x,
+                                             transform.position.y - downSpeed,
+                                             transform.position.z);
+
+            if (countdown >= 0f)
+                countdown -= Time.deltaTime;
+            else
+                Explode();
+        }
+    }
+
+    void Explode()
+    {
         Instantiate(explosionEffect, transform.position, transform.rotation);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
@@ -26,15 +58,19 @@ public class FallingObject : MonoBehaviour
                 rb.AddExplosionForce(force, transform.position, blastRadius);
         }
         Destroy(gameObject);
-        yield return null;
     }
 
     void OnTriggerEnter(Collider collider)
     {
-        if (!beenTouched && collider.gameObject.tag == "Player")
+        if (!isFalling && collider.gameObject.tag == "Player")
         {
-            beenTouched = true;
-            StartCoroutine(Explode());
+            isFalling = true;
+            countdown = delay;
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(transform.position, new Vector3(offsets.xPositionOffset, offsets.yPositionOffset, offsets.zPositionOffset));
     }
 }
