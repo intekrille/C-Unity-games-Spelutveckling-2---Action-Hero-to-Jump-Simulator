@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float movementSpeed = 2, jumpForce = 10, wiggleForce = 5, fallSpeed = 5;
-    float distToGround, wiggleRoom;
+
+    [SerializeField] float movementSpeed = 2, jumpForce = 10;
+    float distToGround;
     bool jumped = false;
 
     Rigidbody rb;
@@ -11,9 +14,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         distToGround = GetComponent<Collider>().bounds.extents.y;
-        wiggleRoom = GetComponent<Collider>().bounds.extents.z;
         rb = GetComponent<Rigidbody>();
-
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -33,32 +34,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0)
             transform.Translate(Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime, 0, 0);
 
+        //Fungerar som KeyDown/ButtonDown fast med axis.
         if (Input.GetAxis("Jump") > 0 && !jumped && IsGrounded())
-            Jump(jumpForce);
-        else if (Input.GetAxis("Jump") > 0 && jumped && CanWiggle())
-            Jump(wiggleForce);
-        else if (Input.GetAxis("Jump") == 0 && jumped)
-        {
-            rb.velocity += Vector3.down * fallSpeed;
+            Jump();
+        else if (Input.GetAxis("Jump") == 0)
             jumped = false;
-        }
-            
     }
 
-    void Jump(float force)
+    void Jump()
     {
-        rb.velocity = Vector3.zero;
-        rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         jumped = true;
     }
 
     bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, distToGround + .01f);
-    }
-
-    bool CanWiggle()
-    {
-        return Physics.Raycast(transform.position, transform.forward, wiggleRoom + .01f);
     }
 }
