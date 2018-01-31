@@ -2,7 +2,7 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float movementSpeed = 2, jumpForce = 10, wiggleForce = 5;
+    [SerializeField] float movementSpeed = 2, jumpForce = 10, wiggleForce = 5, fallSpeed = 5;
     float distToGround, wiggleRoom;
     bool jumped = false;
 
@@ -38,7 +38,11 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetAxis("Jump") > 0 && jumped && CanWiggle())
             Jump(wiggleForce);
         else if (Input.GetAxis("Jump") == 0 && jumped)
+        {
+            rb.velocity += Vector3.down * fallSpeed;
             jumped = false;
+        }
+            
     }
 
     void Jump(float force)
